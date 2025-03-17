@@ -14,9 +14,9 @@ public class Leetcode {
     @Column(name = "id")
     private UUID leetcodeId;
 
-    private String tittle;
+    private String title;
 
-    private String challege;
+    private String challenge;
 
     @JoinColumn(referencedColumnName = "id", name = "solve_id")
     private Solve solves;
@@ -29,20 +29,20 @@ public class Leetcode {
         this.leetcodeId = leetcodeId;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getChallege() {
-        return challege;
+    public String getChallenge() {
+        return challenge;
     }
 
-    public void setChallege(String challege) {
-        this.challege = challege;
+    public void setChallenge(String challenge) {
+        this.challenge = challenge;
     }
 
     public Solve getSolves() {

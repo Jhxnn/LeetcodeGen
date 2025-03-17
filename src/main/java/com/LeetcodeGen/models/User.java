@@ -15,6 +15,8 @@ public class User {
     @Column(name = "id")
     private UUID userId;
 
+    private String name;
+
     private String email;
 
     private String password;
@@ -23,6 +25,14 @@ public class User {
 
     public UUID getUserId() {
         return userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setUserId(UUID userId) {
