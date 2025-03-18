@@ -2,6 +2,7 @@ package com.LeetcodeGen.services;
 
 
 import com.LeetcodeGen.dtos.UserRequestDto;
+import com.LeetcodeGen.dtos.UserResponseDto;
 import com.LeetcodeGen.models.User;
 import com.LeetcodeGen.repositories.UserRepository;
 import org.springframework.beans.BeanUtils;
@@ -20,18 +21,16 @@ public class UserService {
     public List<User> findAll(){
         return userRepository.findAll();
     }
-    public User findById(UUID id){
-        return userRepository.findById(id).orElseThrow(()-> new RuntimeException("Cannot be found"));
+    public UserResponseDto findById(UUID id){
+        var user = userRepository.findById(id).orElseThrow(()-> new RuntimeException("Cannot be found"));
+        return new UserResponseDto(user.getEmail(), user.getName(), user.getSolves());
     }
-    public User createUser(UserRequestDto userDto){
+    public UserResponseDto createUser(UserRequestDto userDto){
         var user = new User();
         BeanUtils.copyProperties(userDto, user);
-        return userRepository.save(user);
+        userRepository.save(user);
+        return new UserResponseDto(user.getEmail(), user.getName(), user.getSolves());
     }
-    public User updateUser(UUID id, UserRequestDto userDto){
-        var user = findById(id);
-        BeanUtils.copyProperties(userDto, user);
-        return userRepository.save(user);
-    }
+
 
 }
