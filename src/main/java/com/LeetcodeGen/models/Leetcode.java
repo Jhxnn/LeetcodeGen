@@ -18,6 +18,7 @@ public class Leetcode {
 
     private String challenge;
 
+    @ManyToOne
     @JoinColumn(referencedColumnName = "id", name = "solve_id")
     private Solve solves;
 

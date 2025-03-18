@@ -14,9 +14,11 @@ public class Solve {
     @Column(name = "id")
     private UUID solveId;
 
+    @ManyToOne
     @JoinColumn(referencedColumnName = "id", name = "user_id")
     private User solver;
 
+    @ManyToOne
     @JoinColumn(referencedColumnName = "id",name = "leetcode_id")
     private Leetcode leetcode;
 
