@@ -4,6 +4,7 @@ package com.LeetcodeGen.services;
 import com.LeetcodeGen.dtos.SolveDto;
 import com.LeetcodeGen.models.Solve;
 import com.LeetcodeGen.repositories.SolveRepository;
+import org.springframework.ai.openai.OpenAiChatModel;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.UUID;
 
 @Service
 public class SolveService {
+
 
     @Autowired
     SolveRepository solveRepository;
