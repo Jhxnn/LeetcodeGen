@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 public class ChatgptService {
     private final ChatClient chatClient;
 
+
+
     public ChatgptService(ChatClient.Builder chatClient) {
         this.chatClient = chatClient.build();
     }
